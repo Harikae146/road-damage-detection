@@ -1,0 +1,21 @@
+# Core deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Ultralytics YOLOv8 (for the second model comparison)
+ultralytics>=8.0.0
+
+# Data processing
+numpy>=1.24.0
+opencv-python>=4.7.0
+Pillow>=9.0.0
+
+# Utilities
+PyYAML>=6.0
+tqdm>=4.64.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Development / notebooks (optional)
+jupyter>=1.0.0
+ipywidgets>=8.0.0
