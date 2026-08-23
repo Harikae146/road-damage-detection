@@ -1,15 +1,6 @@
 # Comparative Analysis: Custom YOLOv8 vs Ultralytics YOLOv8 for Multi-Class Road Damage Detection
 
-**DATA 255: Deep Learning Technologies — Team 8**
 
-| Member | Student ID |
-|---|---|
-| Venkata Siddarth Gullipalli | 017660669 |
-| Hemanvitha Katakam | 017660786 |
-| Harika Eadara | 108178992 |
-| Bindu Madhavi Edara | 018179005 |
-
----
 
 ## Problem Statement
 
