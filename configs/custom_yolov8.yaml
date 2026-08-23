@@ -1,0 +1,50 @@
+# Custom YOLOv8 training configuration
+# Matches training parameters from DATA 255 project slides
+
+model:
+  variant: standard       # "standard" (P3-P5) or "p2" (P2-P5, small-crack extension)
+  num_classes: 4
+  reg_max: 16             # DFL distribution bins
+  width_mult: 0.50        # YOLOv8s-scale
+  depth_mult: 0.33
+
+training:
+  img_size: 640
+  batch_size: 64
+  epochs: 100
+  optimizer: AdamW
+  backbone_lr: 0.001
+  head_lr: 0.01
+  weight_decay: 0.0005
+  lr_schedule: cosine_annealing
+  grad_clip_max_norm: 10
+
+loss:
+  lambda_box: 7.5        # CIoU box regression weight
+  lambda_cls: 0.5        # Binary cross-entropy classification weight
+  lambda_dfl: 1.5        # Distribution Focal Loss weight
+
+data:
+  train_images: ./dataset/rdd2022_yolo/train/images
+  train_labels: ./dataset/rdd2022_yolo/train/labels
+  val_images:   ./dataset/rdd2022_yolo/val/images
+  val_labels:   ./dataset/rdd2022_yolo/val/labels
+  num_classes: 4
+  class_names:
+    0: D00_Longitudinal_Crack
+    1: D10_Transverse_Crack
+    2: D20_Alligator_Crack
+    3: D40_Pothole
+
+inference:
+  conf_thresh: 0.25
+  nms_iou_thr: 0.45
+  soft_nms: true          # true = Soft-NMS, false = standard NMS
+  soft_nms_sigma: 0.5
+
+hardware:
+  # NVIDIA A100 40GB GPU was used in the original training
+  # ~10.5 hours for 100 epochs on the full RDD2022 dataset
+  device: cuda
+  num_workers: 8
+  amp: true               # Automatic Mixed Precision
