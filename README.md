@@ -130,9 +130,3 @@ L_total = lambda_box * L_box + lambda_cls * L_cls + lambda_DFL * L_DFL
 - Adding a P2 head to the custom model improves detection of tiny, thin cracks but did not close the gap with Ultralytics
 - Soft-NMS improved recall slightly for overlapping cracks compared to standard NMS
 
-## Future Work
-
-- Oversampling underrepresented classes (D40 potholes)
-- Better train/val splits (country-stratified)
-- Augmenting with additional road damage datasets
-- Exploring larger YOLOv8 variants (medium, large)
